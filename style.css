@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #f5f5f5;
+  }
+
+h4 {
+    color: red;
+}
+h2 {
+    color: #333;
+}
+h3 {
+    color: #333;
+    font-size: 18px;
+}
+
+p {
+    opacity: 0.8;
+    font-size: 12px;
+}
+.ti {
+    font-size: 24px;
+    color: #666;
+    padding: 16px;
+}
+
+/* player */
+.player{
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.dashboard {
+    background-color: #fff;
+    padding: 16px 16px 14px;
+    position: fixed; 
+    width: 480px;
+}
+
+.dashboard .header {
+    text-align: center;
+}
+
+.dashboard .cd {
+    width: 200px;
+    margin: 0 140px;
+}
+
+.dashboard .cd-thumb {
+    background-image: url(/img/music.jpg);
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-size: cover;
+    
+}
+
+.dashboard .control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 12px 0;
+}
+
+
+.playList{
+    padding: 0 16px;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: white;
+    margin-top: 12px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 10%)
+}
+
+.song .thumb{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.song .content {
+    flex: 1;
+    padding: 0 16px;
+}
+.song .option {
+    opacity: 0.6;
+}
