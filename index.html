@@ -16,7 +16,7 @@
                 <h4>Now playing</h4>
                 <h2>Nevada</h2>
             </div>
-
+            
             <div class="cd">
                 <div class="cd-thumb"></div>
             </div>
@@ -29,8 +29,8 @@
                     <i class="ti fa fa-step-backward" style="font-size:24px"></i>
                 </div>
                 <div class="btn-toggle-play">
-                    <i class="ti fa fa-play" style="font-size:24px"></i>
-                    <!-- <i class="ti 	fa fa-pause" style="font-size:24px></i> -->
+                    <i class="ti play fa fa-play" style="font-size:24px"></i>
+                    <i class="ti pause fa fa-pause" style="font-size:24px"></i>
                 </div>
                 <div class="btn-next">
                     <i class="ti fa fa-step-forward" style="font-size:24px"></i>
@@ -39,47 +39,15 @@
                     <i class="ti fa fa-random" style="font-size:24px"></i>
                 </div>
             </div>
-            
+
+            <input class="progress" type="range" min="0" max="100" step="1" value="0">
+            <audio src="" id="audio"></audio>
         </div>
 
         <!-- Play List -->
-        <div class="playList">
-            <div class="song">
-                <img src="./img/duyenam.png" alt="" class="thumb">    
-                <div class="content">
-                    <h3>Music</h3>
-                    <p>Singer</p>
-                </div>
-                <div class="option">
-                    <i class="fa fa-ellipsis-h"></i>
-                </div>
-            </div>
-                
-            <div class="song">
-                <img src="./img/duyenam.png" alt="" class="thumb">    
-                <div class="content">
-                    <h3>Music</h3>
-                    <p>Singer</p>
-                </div>
-                <div class="option">
-                    <i class="fa fa-ellipsis-h"></i>
-                </div>
-                
-            </div>
-            <div class="song">
-                <img src="./img/duyenam.png" alt="" class="thumb">    
-                <div class="content">
-                    <h3>Music</h3>
-                    <p>Singer</p>
-                </div>
-                <div class="option">
-                    <i class="fa fa-ellipsis-h"></i>
-                </div>
-                
-            </div>
+        <div class="playList">  
         </div>
     </div>
-
     <script src="/main.js"></script>
 </body>
 </html>
