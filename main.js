@@ -171,7 +171,10 @@ const app = {
         //xử lí chạy progress theo bài hát
         audio.ontimeupdate = function () {
             let audioCurr = audio.currentTime
+            if (audio.duration) {
             let lengthAudio = audioCurr * 100 / audio.duration
+
+            }
             progressBar.value = lengthAudio
         }
         
