@@ -1,10 +1,21 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-
+const btnPlay = $('.btn-toggle-play')
+const audio = $('#audio')
+const cd = $('.cd')
+const cdThumb = $('.cd-thumb')
+const player = $('.player')
+const progressBar = $('.progress')
+const btnNext = $('.btn-next')
+const heading = $('h2')
+const btnPrev = $('.btn-prev')
+const btnRandom = $('.btn-random')
+const random = $('.fa-random')
 
 const app = {
     isPlaying: false,
+    isRandom: false,
     index : 0,
     songs: [
         {   
@@ -117,13 +128,7 @@ const app = {
     },
 
     hangEvent: function() {
-        const btnPlay = $('.btn-toggle-play')
-        const audio = $('#audio')
-        const cd = $('.cd')
-        const cdThumb = $('.cd-thumb')
-        const player = $('.player')
-        const progressBar = $('.progress')
-        const nextSong = $('.fa-step-forward')
+        
 
         var cdWidth = cd.offsetWidth
         var _this = this
@@ -169,7 +174,7 @@ const app = {
             let lengthAudio = audioCurr * 100 / audio.duration
             progressBar.value = lengthAudio
         }
-        console.log(bien)
+        
         //Xử lí tua progress theo bài
         progressBar.onchange = function () {
             if (audio.duration) {
@@ -185,27 +190,71 @@ const app = {
             { transform : 'rotate(360deg)' }
         ], {
             duration : 10000, 
-            iteration : Infinity,
+            iterations : Infinity,
             easing : 'linear'
         })
-
         cdThumbAnimate.pause()
 
-        //xử lí next songs 
-        nextSong.onclick = function () {
+        //xử lí next songs
+        btnNext.onclick = function () {
+            if (_this.isRandom ) {
+                _this.playRamdomSong()
+            } else {
+                _this.nextSong()
+                audio.play()
+                player.classList.add('playing')
+            }
 
         }
-        
-    },
-    
-    firstSong: function() {
-        const heading = $('h2')
-        const cdThumb = $('.cd-thumb')
-        const audio = $('#audio')
 
+        //xử lí prev songs
+        btnPrev.onclick = function () {
+            if (_this.isRandom ) {
+                _this.playRamdomSong()
+            } else {
+                _this.prevSong()
+                audio.play()
+                player.classList.add('playing')
+            }
+        }
+
+        //xử lí turn on / off random
+        btnRandom.onclick = function () {   
+            _this.isRandom = random.classList.toggle('active')
+            
+        }
+
+    },
+
+    firstSong: function() {
         heading.textContent = this.currentSong.name
         cdThumb.style.backgroundImage = `url('${this.currentSong.img}')`
         audio.src = this.currentSong.path
+    },
+
+    nextSong: function() { 
+        this.index++
+        if (this.index >= this.songs.length) {
+            this.index = 0
+        }
+        this.firstSong()
+    },
+
+    prevSong: function() {
+        this.index--
+        if (this.index < 0) {
+            this.index = this.songs.length - 1
+        }
+        this.firstSong()
+    },
+
+    playRamdomSong : function() {
+        let newIndex = 0
+        do
+            newIndex = Math.floor(Math.random() * this.songs.length)
+        while(newIndex === this.index)
+        this.index = newIndex
+        this.firstSong()
     },
 
     start: function () {

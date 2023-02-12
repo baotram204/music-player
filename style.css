@@ -146,3 +146,7 @@ input[type='range']::-webkit-slider-thumb {
 .song .option {
     opacity: 0.6;
 }
+
+.active {
+    color: red;
+}
