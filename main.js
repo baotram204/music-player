@@ -1,7 +1,6 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-const cd = $('.cd')
 
 
 const app = {
@@ -120,13 +119,16 @@ const app = {
     hangEvent: function() {
         const btnPlay = $('.btn-toggle-play')
         const audio = $('#audio')
+        const cd = $('.cd')
+        const cdThumb = $('.cd-thumb')
         const player = $('.player')
         const progressBar = $('.progress')
+        const nextSong = $('.fa-step-forward')
 
         var cdWidth = cd.offsetWidth
         var _this = this
+        var bien = 0
 
-        console.log(progressBar.value)
         // Xử lí phóng to thu nhỏ CD
         document.onscroll = function () {
             let scroll = window.scrollY || document.documentElement.scrollTop
@@ -148,12 +150,15 @@ const app = {
             audio.onplay = function () {
                 _this.isPlaying = true
                 player.classList.add('playing')
+                cdThumbAnimate.play()
+
             }
 
             //khi bài hát pause
             audio.onpause = function () {
                 _this.isPlaying = false
                 player.classList.remove('playing')
+                cdThumbAnimate.pause()
             }
             
         }
@@ -164,13 +169,31 @@ const app = {
             let lengthAudio = audioCurr * 100 / audio.duration
             progressBar.value = lengthAudio
         }
-
+        console.log(bien)
         //Xử lí tua progress theo bài
         progressBar.onchange = function () {
             if (audio.duration) {
                 let lengCurr = this.value * audio.duration / 100
                 audio.currentTime = lengCurr   
             }
+        }
+
+        //xử lí CD quay ( animate)
+        const cdThumbAnimate = cdThumb.animate ([
+            
+            // { transform: 'rotate(0deg)'},
+            { transform : 'rotate(360deg)' }
+        ], {
+            duration : 10000, 
+            iteration : Infinity,
+            easing : 'linear'
+        })
+
+        cdThumbAnimate.pause()
+
+        //xử lí next songs 
+        nextSong.onclick = function () {
+
         }
         
     },

@@ -99,6 +99,25 @@ p {
 
 }
 
+input[type="range"] {
+    overflow: hidden;
+    width: 100%;
+    background-color: #c4c2bb;
+}
+
+input[type="range"] ::-webkit-slider-runnable-track {
+    height: 8px;
+    color: red;
+    margin-top: -1px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    background: red;
+    box-shadow: -1000px 0 0 1000px red;
+  }
+
 .playList{
     padding: 0 16px;
 }
