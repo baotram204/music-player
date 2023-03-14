@@ -132,6 +132,21 @@ input[type='range']::-webkit-slider-thumb {
     box-shadow: 0 2px 3px rgb(0 0 0 / 10%)
 }
 
+
+.song.active {
+    background-color: red;
+}
+
+.song:active {
+    opacity: 0.6;
+}
+
+.song.active .option,
+.song.active p ,
+.song.active h3 {
+    color: white;
+}
+
 .song .thumb{
     width: 44px;
     height: 44px;
@@ -149,4 +164,8 @@ input[type='range']::-webkit-slider-thumb {
 
 .active {
     color: red;
+}
+
+.song.focus {
+    background-color: red;
 }
